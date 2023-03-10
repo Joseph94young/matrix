@@ -9,7 +9,6 @@
             "command": "bazel",
             "args": [
                 "build",
-                "--config=clang_config",
                 "//main:main"
             ]
         },

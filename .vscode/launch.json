@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "LLaunch",
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceFolder}/bazel-bin/main/main",
+            "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
             "args": [
                 "abc",
                 "123",
@@ -16,6 +16,10 @@
                 "789",
                 "000"
             ],
+            "sourceMap": {
+                //"/home/joseph/zhouyang/matrix": "",
+                "/proc/self/cwd": "/home/joseph/zhouyang/matrix"
+            },
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "build project",
             "postDebugTask": "clean project"
