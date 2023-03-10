@@ -5,3 +5,6 @@
 
 # run the executable program
 ```./bazel-bin/main/main {params}```
+
+# test
+```bazel run test:concurrent_queue_test```
