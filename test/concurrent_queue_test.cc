@@ -1,6 +1,6 @@
-#include "gtest/gtest.h"
-
 #include "concurrent_queue/concurrent_queue.h"
+
+#include "gtest/gtest.h"
 
 TEST(testConcurrentQueue, testPush)
 {
