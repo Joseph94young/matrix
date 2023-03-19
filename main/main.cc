@@ -1,10 +1,10 @@
 #include <iostream>
 
-#include "concurrent_queue/concurrent_queue.h"
+#include "concurrent/concurrent_queue.h"
 
 int main(int argc, char** argv)
 {
-    ConcurrentQueue<int> my_queue;
+    ConcurrentQueue<int> my_queue(100);
     for (int i = 1; i < argc; i++) {
         try {
             auto item = std::stoi(*++argv);

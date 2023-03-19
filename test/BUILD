@@ -3,8 +3,8 @@ cc_test(
   size = "small",
   srcs = ["concurrent_queue_test.cc"],
   deps = [
-    "//concurrent_queue:concurrent_queue",
     "@googletest//:gtest",
-    "@googletest//:gtest_main"
+    "@googletest//:gtest_main",
+    "//concurrent:concurrent_queue"
   ],
 )

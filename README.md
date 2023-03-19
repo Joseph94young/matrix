@@ -2,7 +2,7 @@
 
 # build an executable file
 
-```bazel build --config=clang_config //main:main```
+```bazel build //main:main```
 
 # run the executable program
 
@@ -10,4 +10,4 @@
 
 # test
 
-```bazel run test:concurrent_queue_test```
+```bazel test test:concurrent_queue_test```

@@ -29,8 +29,6 @@ all_link_actions = [
 
 def _impl(ctx):
     llvm_version = "15.0.7"
-    # llvm_prefix = "/home/joseph/install/llvm-{}".format(llvm_version)
-    # llvm_bindir = llvm_prefix + "/bin"
     llvm_prefix = "/usr"
     llvm_bindir = llvm_prefix + "/bin"
 
@@ -82,6 +80,7 @@ def _impl(ctx):
                                 "-O2", "-DNDEBUG",
                                 "-Wall", "-Wextra", "-Wpedantic", "-fPIC",
                                 "-std=c++20", "-stdlib=libc++",
+                                "-fprofile-instr-generate", "-fcoverage-mapping"
                             ],
                         ),
                     ]),
