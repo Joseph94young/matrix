@@ -11,10 +11,15 @@ build:clang_config --cpu=linux_x86_64
 build:clang_config --host_crosstool_top=@bazel_tools//tools/cpp:toolchain
 
 build --strip=never
-build --copt=-g
-build --copt=-ggdb
+build --cxxopt=-g
+build --cxxopt=-ggdb
+build --cxxopt=-Xclang
+build --cxxopt=-coverage-version=B13*
 build --config=clang_config
 
 test --test_output=all
 test --collect_code_coverage=true
 test --cache_test_results=false
+test --instrumentation_filter="^//test[/:]"
+test --instrument_test_targets
+test --combined_report=lcov

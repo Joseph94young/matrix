@@ -28,42 +28,42 @@ all_link_actions = [
 ]
 
 def _impl(ctx):
-    llvm_version = "15.0.7"
+    llvm_version = "14.0.0"
     llvm_prefix = "/usr"
     llvm_bindir = llvm_prefix + "/bin"
 
     tool_paths = [
         tool_path(
             name = "gcc",
-            path = llvm_bindir + "/clang-15",
+            path = llvm_bindir + "/clang-14",
         ),
         tool_path(
             name = "ld",
-            path = llvm_bindir + "/ld.lld-15",
+            path = llvm_bindir + "/ld.lld-14",
         ),
         tool_path(
             name = "ar",
-            path = llvm_bindir + "/llvm-ar-15",
+            path = llvm_bindir + "/llvm-ar-14",
         ),
         tool_path(
             name = "cpp",
-            path = llvm_bindir + "/clang-cpp-15",
+            path = llvm_bindir + "/clang-cpp-14",
         ),
         tool_path(
             name = "gcov",
-            path = llvm_bindir + "/llvm-cov-15",
+            path = llvm_bindir + "/gcov",
         ),
         tool_path(
             name = "nm",
-            path = llvm_bindir + "/llvm-nm-15",
+            path = llvm_bindir + "/llvm-nm-14",
         ),
         tool_path(
             name = "objdump",
-            path = llvm_bindir + "/llvm-objdump-15",
+            path = llvm_bindir + "/llvm-objdump-14",
         ),
         tool_path(
             name = "strip",
-            path = llvm_bindir + "/llvm-strip-15",
+            path = llvm_bindir + "/llvm-strip-14",
         ),
     ]
 
@@ -79,8 +79,7 @@ def _impl(ctx):
                             flags = [
                                 "-O2", "-DNDEBUG",
                                 "-Wall", "-Wextra", "-Wpedantic", "-fPIC",
-                                "-std=c++20", "-stdlib=libc++",
-                                "-fprofile-instr-generate", "-fcoverage-mapping"
+                                "-std=c++20", "-stdlib=libc++"
                             ],
                         ),
                     ]),
@@ -97,7 +96,7 @@ def _impl(ctx):
                         flag_group(
                             flags = [
                                 "-lc++", "-lc++abi",
-                                "-lm", "-ldl", "-lpthread",
+                                "-lm", "-ldl", "-lpthread"
                             ],
                         ),
                     ]),
@@ -110,8 +109,8 @@ def _impl(ctx):
         ctx = ctx,
         features = features,
         cxx_builtin_include_directories = [
-            llvm_prefix + "/lib/llvm-15/include/c++/v1",
-            llvm_prefix + "/lib/llvm-15/lib/clang/{}/include".format(llvm_version),
+            llvm_prefix + "/lib/llvm-14/include/c++/v1",
+            llvm_prefix + "/lib/llvm-14/lib/clang/{}/include".format(llvm_version),
             "/usr/local/include",
             "/usr/include/x86_64-linux-gnu",
             "/usr/include",
