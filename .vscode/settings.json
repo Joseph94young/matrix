@@ -83,6 +83,13 @@
         "ios": "cpp",
         "locale": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
-    }
+        "stack": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "__nullptr": "cpp",
+        "__string": "cpp",
+        "cassert": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.default.compilerPath": "/usr/bin/clang-14"
 }

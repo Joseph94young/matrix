@@ -79,7 +79,8 @@ def _impl(ctx):
                             flags = [
                                 "-O2", "-DNDEBUG",
                                 "-Wall", "-Wextra", "-Wpedantic", "-fPIC",
-                                "-std=c++20", "-stdlib=libc++"
+                                "-std=c++20", "-stdlib=libc++",
+                                "-lc++fs"
                             ],
                         ),
                     ]),
