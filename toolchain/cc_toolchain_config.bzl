@@ -80,7 +80,9 @@ def _impl(ctx):
                                 "-O2", "-DNDEBUG",
                                 "-Wall", "-Wextra", "-Wpedantic", "-fPIC",
                                 "-std=c++20", "-stdlib=libc++",
-                                "-lc++fs"
+                                "-fmodules", "-fno-implicit-modules",
+                                "-fbuiltin-module-map",
+                                # "-lc++fs", 
                             ],
                         ),
                     ]),
@@ -97,7 +99,8 @@ def _impl(ctx):
                         flag_group(
                             flags = [
                                 "-lc++", "-lc++abi",
-                                "-lm", "-ldl", "-lpthread"
+                                "-lm", "-ldl", "-lpthread",
+                                "-stdlib=libc++"
                             ],
                         ),
                     ]),

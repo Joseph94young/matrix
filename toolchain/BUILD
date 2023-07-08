@@ -1,4 +1,6 @@
 load(":cc_toolchain_config.bzl", "cc_toolchain_config")
+# toolchain/BUILD
+load("//bazel/cc_module:defs.bzl", "cc_module")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -29,3 +31,25 @@ cc_toolchain(
 #filegroup(name = "linux_x86_64_toolchain_config")
 
 cc_toolchain_config(name = "linux_x86_64_toolchain_config")
+
+cc_module(
+    name = "_Builtin_stddef_max_align_t",
+    is_system = True,
+)
+
+cc_module(
+    name = "std_config",
+    is_system = True,
+    deps = [
+        ":_Builtin_stddef_max_align_t",
+    ],
+)
+
+cc_module(
+    name = "std",
+    is_system = True,
+    deps = [
+        ":std_config",
+        ":_Builtin_stddef_max_align_t",
+    ],
+)
