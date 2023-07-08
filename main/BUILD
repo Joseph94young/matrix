@@ -1,7 +1,11 @@
-load("@rules_cc//cc:defs.bzl", "cc_binary")
+load("//bazel:build_system.bzl", "matrix_module", "matrix_module_binary")
 
-cc_binary(
+matrix_module_binary(
     name = "main",
-    srcs = ["main.cc"],
-    deps = ["//concurrent:concurrent_queue"],
+    srcs = [
+        "main.cc",
+    ],
+    deps = [
+        "//concurrent:concurrent_queue"
+    ],
 )

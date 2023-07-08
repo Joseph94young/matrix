@@ -1,7 +1,9 @@
-#include <mutex>
-#include <queue>
+export module concurrent_queue;
 
-template <typename T>
+import <mutex>;
+export import <queue>;
+
+export template <typename T>
 class ConcurrentQueue {
  public:
   ConcurrentQueue(size_t capacity) : threshold_(capacity) {}

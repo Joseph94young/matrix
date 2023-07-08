@@ -1,8 +1,9 @@
-load("@rules_cc//cc:defs.bzl", "cc_library")
 
-cc_library(
+load("//bazel:build_system.bzl", "matrix_module")
+
+matrix_module(
     name = "concurrent_queue",
-    hdrs = ["concurrent_queue.h"],
+    src = "concurrent_queue.cc",
     visibility = [
         "//main:__pkg__",
         "//test:__pkg__"
